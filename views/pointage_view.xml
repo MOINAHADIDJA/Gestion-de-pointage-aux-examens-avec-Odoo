@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="gpointage_pointage_action" model="ir.actions.act_window">
+        <field name="name">pointage</field>
+        <field name="res_model">pointage</field>
+        <field name="view_mode">tree,form,graph,search</field>
+    </record>
+    <menuitem name="pointage" id="gpointage_pointage_menu" parent="gpointage_base_menu" action="gpointage_pointage_action" />
+
+
+    <!-- <record id="pointage_view_search" model="ir.ui.view">
+        <field name="name">Pointage Search</field>
+        <field name="model">pointage</field>
+        <field name="arch" type="xml">
+            <search>
+               
+                
+            </search>
+        </field>
+    </record> -->
+
+    
+    <record id="pointage_view_form" model="ir.ui.view">
+        <field name="name">Pointage</field>
+        <field name="model">pointage</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="etudiant_id" />
+                <field name="examen_id" />
+                <field name="state" />
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="pointage_view_tree" model="ir.ui.view">
+        <field name="name">Pointage</field>
+        <field name="model">pointage</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="etudiant_id" />
+                <field name="examen_id" />
+                <field name="state" />
+               
+            </tree>
+        </field>
+    </record>
+
+    <record id="pointage_view_graph" model="ir.ui.view">
+        <field name="name">Pointage</field>
+        <field name="model">pointage</field>
+        <field name="arch" type="xml">
+            <graph string="" type="bar">
+                <field name="state" />
+                <!-- <field name="days" type="measure" /> -->
+
+            </graph>
+        </field>
+    </record>
+</odoo>

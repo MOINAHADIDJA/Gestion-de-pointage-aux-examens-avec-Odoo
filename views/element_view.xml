@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="gpointage_element_action" model="ir.actions.act_window">
+        <field name="name">Element</field>
+        <field name="res_model">element</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="element" id="gpointage_element_menu" parent="gpointage_filiere_menu" action="gpointage_element_action" />
+
+
+    <record id="element_view_form" model="ir.ui.view">
+        <field name="name">Element</field>
+        <field name="model">element</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="id_element" />
+                        <field name="code" />
+                        <field name="designation" />
+                        <field name="module" />
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="element_view_tree" model="ir.ui.view">
+        <field name="name">Element</field>
+        <field name="model">element</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="id_element" />
+                <field name="code" />
+                <field name="designation" />
+                <field name="module" />
+            </tree>
+        </field>
+    </record>
+</odoo>

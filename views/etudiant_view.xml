@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="gpointage_etudiant_action" model="ir.actions.act_window">
+        <field name="name">Etudiant</field>
+        <field name="res_model">etudiant</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Etudiant" id="gpointage_etudiant_menu" parent="gpointage_base_menu" action="gpointage_etudiant_action" />
+    <record id="etudiant_view_form" model="ir.ui.view">
+        <field name="name">Etudiant</field>
+        <field name="model">etudiant</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="id_etudiant" />
+                        <field name="cne" />
+                        <field name="nom" />
+                        <field name="prenom" />
+                        <field name="email" />
+                        <field name="tel" />
+                        <field name="adresse" />
+                        <field name="date_naissance" />
+                        <field name="lieu_naissance" />
+                        <field name="etablissement_id" />
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="etudiant_view_tree" model="ir.ui.view">
+        <field name="name">Etudiant</field>
+        <field name="model">etudiant</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="id_etudiant" />
+                <field name="cne" />
+                <field name="nom" />
+                <field name="prenom" />
+                <field name="email" />
+                <field name="tel" />
+                <field name="adresse" />
+                <field name="date_naissance" />
+                <field name="lieu_naissance" />
+                <field name="etablissement" />
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- <record id="etudiant_view_search" model="ir.ui.view">
+        <field name="name">Etudiant Search</field>
+        <field name="model">etudiant</field>
+        <field name="arch" type="xml">
+            <search string="recherche par nom">
+              
+            </search>
+        </field>
+    </record>
+   -->
+</odoo>

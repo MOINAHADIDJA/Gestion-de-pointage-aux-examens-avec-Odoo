@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="gpointage_employe_action" model="ir.actions.act_window">
+        <field name="name">Employé</field>
+        <field name="res_model">employe</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="employe" id="gpointage_employe_menu" parent="gpointage_base_menu" action="gpointage_employe_action" />
+
+    <record id="employe_view_form" model="ir.ui.view">
+        <field name="name">Employe</field>
+        <field name="model">employe</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="id_employe" />
+                        <field name="matricule" />
+                        <field name="role" />
+                        <field name="nom" />
+                        <field name="prenom" />
+                        <field name="email" />
+                        <field name="tel" />
+                    
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+<record id="employe_view_tree" model="ir.ui.view">
+    <field name="name">Employe</field>
+    <field name="model">employe</field>
+    <field name="arch" type="xml">
+        <tree string="">
+            <field name="id_employe" />
+            <field name="matricule" />
+            <field name="role" />
+            <field name="nom" />
+            <field name="prenom" />
+            <field name="email" />
+            <field name="tel" />
+            
+        </tree>
+    </field>
+</record>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="gpointage_semestre_action" model="ir.actions.act_window">
+        <field name="name">Semestre</field>
+        <field name="res_model">semestre</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="semestre" id="gpointage_semestre_menu" parent="gpointage_filiere_menu" action="gpointage_semestre_action" />
+
+
+    <record id="semestre_view_form" model="ir.ui.view">
+        <field name="name">Semestre</field>
+        <field name="model">semestre</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="id_semestre" />
+                        <field name="designation" />
+                        <!-- <field name="module_ids" /> -->
+                        <field name="filiere_id" />
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="semestre_view_tree" model="ir.ui.view">
+        <field name="name">Semestre</field>
+        <field name="model">semestre</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="id_semestre" />
+                <field name="designation" />
+                <!-- <field name="module_ids" /> -->
+                <field name="filiere" />
+            </tree>
+        </field>
+    </record>
+</odoo>

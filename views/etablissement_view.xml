@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="gpointage_etablissement_action" model="ir.actions.act_window">
+        <field name="name">Etablissement</field>
+        <field name="res_model">etablissement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Gestion pointage " id="gpointage_base_menu" />
+    <menuitem name="Etablissement" id="gpointage_etablissement_menu" parent="gpointage_base_menu" action="gpointage_etablissement_action" />
+
+    <record id="etablissement_view_form" model="ir.ui.view">
+        <field name="name">Etablissement</field>
+        <field name="model">etablissement</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="code" />
+                        <field name="nom" />
+                        <field name="short_name" />
+                        <field name="email" />
+                        <field name="tel" />
+                        <field name="fax" />
+                        <field name="adresse" />
+                        <field name="ville" />
+                        <field name="code_postal" />
+                        <field name="logo" />
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="etablissement_view_tree" model="ir.ui.view">
+        <field name="name">Etablissement</field>
+        <field name="model">etablissement</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="code" />
+                <field name="nom" />
+                <field name="short_name" />
+                <field name="email" />
+                <field name="tel" />
+                <field name="fax" />
+                <field name="adresse" />
+                <field name="ville" />
+                <field name="code_postal" />
+                <field name="logo" />
+            </tree>
+        </field>
+    </record>
+</odoo>

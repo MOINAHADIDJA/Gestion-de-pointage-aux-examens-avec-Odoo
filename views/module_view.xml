@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="gpointage_module_action" model="ir.actions.act_window">
+        <field name="name">Module</field>
+        <field name="res_model">module</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="module" id="gpointage_module_menu" parent="gpointage_filiere_menu" action="gpointage_module_action" />
+
+
+    <record id="module_view_form" model="ir.ui.view">
+        <field name="name">Module</field>
+        <field name="model">module</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="id_module" />
+                        <field name="code" />
+                        <field name="designation" />
+                        <field name="element_ids" />
+                        <field name="semestre" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="module_view_tree" model="ir.ui.view">
+        <field name="name">Module</field>
+        <field name="model">module</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="id_module" />
+                <field name="code" />
+                <field name="designation" />
+                <field name="element_ids" />
+                <field name="semestre" />
+            </tree>
+        </field>
+    </record>
+</odoo>

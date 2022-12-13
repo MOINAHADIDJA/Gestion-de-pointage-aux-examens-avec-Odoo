@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acl_examen,examen_default,model_examen,,1,0,0,0
+acl_examen_pointage,examen_pointage,model_examen,group_pointage,1,1,1,1
+acl_etudiant_pointage,etudiant_pointage,model_etudiant,group_pointage,1,1,1,1
+acl_pointage,pointer_pointage,model_pointage,group_pointage,1,1,1,1
+acl_employe_pointage,employe_pointage,model_employe,group_pointage,1,1,1,1
+acl_element_pointage,element_pointage,model_element,group_pointage,1,1,1,1
+acl_filiere_pointage,filiere_pointage,model_filiere,group_pointage,1,1,1,1
+acl_local_pointage,local_pointage,model_local,group_pointage,1,1,1,1
+acl_semestre_pointage,semestre_pointage,model_semestre,group_pointage,1,1,1,1
+acl_type_examen_pointage,type_examen_pointage,model_type_examen,group_pointage,1,1,1,1
+acl_module_pointage,module_pointage,model_module,group_pointage,1,1,1,1
+acl_etablissement_pointage,etablissement_pointage,model_etablissement,group_pointage,1,1,1,1
+
+
