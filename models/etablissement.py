@@ -6,6 +6,7 @@ class etablissement(models.Model):
     # id_etab = fields.Integer("Id etablissement",required=True)
     code = fields.Char("Code",required=True)
     nom = fields.Char("Nom")
+    _rec_name='short_name'
     short_name = fields.Char("Abreviation")
     email = fields.Char("E-mail")
     tel = fields.Char("Tel")

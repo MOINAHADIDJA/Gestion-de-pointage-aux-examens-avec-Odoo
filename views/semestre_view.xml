@@ -34,7 +34,7 @@
                 <field name="id_semestre" />
                 <field name="designation" />
                 <!-- <field name="module_ids" /> -->
-                <field name="filiere" />
+                <field name="filiere_id" />
             </tree>
         </field>
     </record>

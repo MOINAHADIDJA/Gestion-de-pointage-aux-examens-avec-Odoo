@@ -22,8 +22,9 @@
                         <field name="prenom" />
                         <field name="email" />
                         <field name="tel" />
-                    
-                        
+                        <field name="etablissement_id" />
+
+
                     </group>
                 </sheet>
             </form>
@@ -34,15 +35,16 @@
     <field name="model">employe</field>
     <field name="arch" type="xml">
         <tree string="">
-            <field name="id_employe" />
-            <field name="matricule" />
-            <field name="role" />
-            <field name="nom" />
-            <field name="prenom" />
-            <field name="email" />
-            <field name="tel" />
-            
-        </tree>
+                <field name="id_employe" />
+                <field name="matricule" />
+                <field name="role" />
+                <field name="nom" />
+                <field name="prenom" />
+                <field name="email" />
+                <field name="tel" />
+                <field name="etablissement_id" />
+
+            </tree>
     </field>
 </record>
 </odoo>

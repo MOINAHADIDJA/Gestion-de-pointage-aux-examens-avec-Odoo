@@ -24,7 +24,7 @@
                         <field name="date_naissance" />
                         <field name="lieu_naissance" />
                         <field name="etablissement_id" />
-
+                        <field name="semestre_id" />
                     </group>
                 </sheet>
             </form>
@@ -44,20 +44,23 @@
                 <field name="adresse" />
                 <field name="date_naissance" />
                 <field name="lieu_naissance" />
-                <field name="etablissement" />
+                <field name="etablissement_id" />
+                <field name="semestre_id" />
 
             </tree>
         </field>
     </record>
 
-    <!-- <record id="etudiant_view_search" model="ir.ui.view">
+    <record id="etudiant_view_search" model="ir.ui.view">
         <field name="name">Etudiant Search</field>
         <field name="model">etudiant</field>
         <field name="arch" type="xml">
             <search string="recherche par nom">
               
+                <filter name="cne" string="cne" domain="[('cne', '=', 'value')]" context="{'group_by': 'cne'}" />
+
             </search>
         </field>
     </record>
-   -->
+  
 </odoo>

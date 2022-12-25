@@ -26,8 +26,8 @@
         <field name="model">pointage</field>
         <field name="arch" type="xml">
             <tree string="">
-                <field name="etudiant_id" />
-                <field name="examen_id" />
+                <field name="etudiant_id"  />
+                <field name="examen_id" widget="many2one_simple" />
                 <field name="state" />
 
             </tree>
@@ -39,8 +39,8 @@
         <field name="model">pointage</field>
         <field name="arch" type="xml">
             <tree string="">
-                <field name="etudiant_id" />
-                <field name="examen_id" />
+                <field name="etudiant_id"  />
+                <field name="examen_id"  />
                 <field name="state" />
                
             </tree>

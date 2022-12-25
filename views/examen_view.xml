@@ -6,6 +6,8 @@
         <field name="res_model">examen</field>
         <field name="view_mode">tree,form,kanban,calendar</field>
     </record>
+    <menuitem name="Examen" id="gpointage_examen_menu" parent="gpointage_base_menu" />
+
     <menuitem name="examen" id="gpointage_examen_sous_menu" parent="gpointage_examen_menu" action="gpointage_examen_action" />
 
 
@@ -15,7 +17,7 @@
         <field name="priority">10</field>
         <field name="arch" type="xml">
             <kanban>
-                <field name="type" />
+                <field name="type_id" />
                 <templates>
                     <t t-name="kanban-box">
                         <div>
@@ -23,7 +25,7 @@
                                 <li t_if="record.name.raw_value">
                                     <a>Element</a>
                                     :
-                                    <field name="element" />
+                                    <field name="element_id" />
 
                                 </li>
                                 <li t_if="record.name.raw_value">
@@ -33,7 +35,7 @@
                                 </li>
                                 <li t_if="record.name.raw_value">
                                     Local :
-                                    <field name="local" />
+                                    <field name="local_id" />
 
                                 </li>
                             </ul>
@@ -50,7 +52,7 @@
         <field name="arch" type="xml">
             <calendar string="" date_start="date" color="">
                
-                <field name="element" />
+                <field name="element_id" />
             </calendar>
         </field>
     </record>
@@ -60,8 +62,8 @@
         <field name="model">examen</field>
         <field name="arch" type="xml">
             <pivot string="">
-                <field name="type" type="row" />
-                <field name="element" type="col" />
+                <field name="type_id" type="row" />
+                <field name="element_id" type="col" />
                 <field name="date" type="col" />
                 <field name="employe_id"  />
 
@@ -86,11 +88,14 @@
                     <group>
                         <field name="id_examen" />
                         <field name="date" />
-                        <field name="type" />
+                        <field name="type_id" />
                         <field name="session" />
-                        <field name="element" />
-                        <field name="local" />
-                        <field name="employe_id" widget="one2many_tags" />
+                        <field name="element_id" />
+                        <field name="local_id" />
+                        <!-- <field name="pointage_exam_id" /> -->
+                        <field name="duree" />
+
+                        <field name="employe_id" widget="many2many_tags" />
 
                     </group>
                 </sheet>
@@ -104,12 +109,13 @@
             <tree string="">
                 <field name="id_examen" />
                 <field name="date" />
-                <field name="type" />
+                <field name="type_id" />
                 <field name="session" />
-                <field name="element"  />
-                <field name="local" />
+                <field name="element_id" />
+                <field name="local_id" />
                 <field name="state" />
                 <field name="employe_id" />
+                <field name="duree" />
 
             </tree>
         </field>

@@ -7,6 +7,7 @@ class filiere(models.Model):
     code = fields.Char("code",required=True)
     name = fields.Char("nom")
     short_name = fields.Char("Abreviation")
+    _rec_name = 'short_name'
     semestre_ids = fields.One2many('semestre','filiere_id',string="Semestre")   
 
     

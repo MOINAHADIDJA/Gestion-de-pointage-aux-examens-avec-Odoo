@@ -14,6 +14,16 @@ class employe(models.Model):
         selection=[('enseignant', 'Enseignant'), ('responsable filiere', 'Responsable filiere'), ('administratif', 'Administratif')],
         default="enseignant"
            )
-    
     examens = fields.Many2one("examen",string= "examen à surveiller")
-    #etablissement_id = fields
+       
+    etablissement_id = fields.Many2one(
+        string='Etablissement',
+        comodel_name='etablissement'
+        
+    )
+    examen_id = fields.Many2many(
+        string='examen',
+        comodel_name='examen'
+        
+    )
+    

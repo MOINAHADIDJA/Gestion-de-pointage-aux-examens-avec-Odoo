@@ -1,16 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/gestionpointage/static/src/css/sheet.css" />
+        </xpath>
+    </template>
     <record id="gpointage_etablissement_action" model="ir.actions.act_window">
-        <field name="name">Etablissement</field>
+        <field name="name">
+            Etablissement</field>
         <field name="res_model">etablissement</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
     <menuitem name="Gestion pointage " id="gpointage_base_menu" />
-    <menuitem name="Etablissement" id="gpointage_etablissement_menu" parent="gpointage_base_menu" action="gpointage_etablissement_action" />
+    <menuitem name="Etablissement" id="gpointage_etablissement_menu" parent="gpointage_base_menu"
+        action="gpointage_etablissement_action" />
+
+
+    <record id="etablissement_view_kanban" model="ir.ui.view">
+        <field name="name">
+            Etablissement</field>
+        <field name="model">etablissement</field>
+        <field name="priority">
+            10</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="short_name" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div>
+                            <field name="short_name" />
+                            <ul>
+                                <li t_if="record.name.raw_value"> <field name="logo" widget='image' />
+
+                                </li>
+                                <li>
+                                   <ul>
+                                        <li t_if="record.name.raw_value">
+                                            <a>
+                                                Etablissement</a> : <field name="nom" />
+
+                                        </li>
+                                        <li t_if="record.name.raw_value">
+                                            Adresse : <field
+                                                name="adresse" />
+
+                                        </li>
+                                        <li t_if="record.name.raw_value">
+                                            Mail : <field name="email" />
+
+                                        </li>
+                                        <li t_if="record.name.raw_value"> Tel
+                                            : <field name="tel" />
+
+                                        </li>
+                                    </ul>
+
+                                </li>
+
+                            </ul>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
 
     <record id="etablissement_view_form" model="ir.ui.view">
-        <field name="name">Etablissement</field>
+        <field name="name">
+            Etablissement</field>
         <field name="model">etablissement</field>
         <field name="arch" type="xml">
             <form string="">
@@ -33,10 +91,13 @@
         </field>
     </record>
     <record id="etablissement_view_tree" model="ir.ui.view">
-        <field name="name">Etablissement</field>
+        <field name="name">
+            Etablissement</field>
         <field name="model">etablissement</field>
         <field name="arch" type="xml">
             <tree string="">
+                <field name="logo" widget='image' class="etablissement_treeview" />
+
                 <field name="code" />
                 <field name="nom" />
                 <field name="short_name" />
@@ -46,7 +107,7 @@
                 <field name="adresse" />
                 <field name="ville" />
                 <field name="code_postal" />
-                <field name="logo" />
+
             </tree>
         </field>
     </record>

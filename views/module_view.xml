@@ -19,8 +19,7 @@
                         <field name="id_module" />
                         <field name="code" />
                         <field name="designation" />
-                        <field name="element_ids" />
-                        <field name="semestre" />
+                        <field name="semestre_id" />
                     </group>
                 </sheet>
             </form>
@@ -34,8 +33,8 @@
                 <field name="id_module" />
                 <field name="code" />
                 <field name="designation" />
-                <field name="element_ids" />
-                <field name="semestre" />
+                <field name="element_ids" widget="many2many_tags" />
+                <field name="semestre_id" />
             </tree>
         </field>
     </record>

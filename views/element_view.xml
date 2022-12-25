@@ -19,7 +19,7 @@
                         <field name="id_element" />
                         <field name="code" />
                         <field name="designation" />
-                        <field name="module" />
+                        <field name="module_id" />
 
                     </group>
                 </sheet>
@@ -34,7 +34,7 @@
                 <field name="id_element" />
                 <field name="code" />
                 <field name="designation" />
-                <field name="module" />
+                <field name="module_id" />
             </tree>
         </field>
     </record>
