@@ -1,8 +1,9 @@
 from odoo import models,fields
-
+from odoo import api
 class employe(models.Model):
     __name__ = "employe"
     __description = " "
+    _rec_name = 'name'
     id_employe = fields.Integer("Id employe",required=True)
     matricule = fields.Char("Matricule",required=True)
     nom = fields.Char("Nom")
@@ -18,7 +19,7 @@ class employe(models.Model):
        
     etablissement_id = fields.Many2one(
         string='Etablissement',
-        comodel_name='etablissement'
+        comodel_name='etablissement',required=True
         
     )
     examen_id = fields.Many2many(
@@ -26,4 +27,11 @@ class employe(models.Model):
         comodel_name='examen'
         
     )
+    
+    name = fields.Char(compute='_compute_fullname', store="True")
+    @api.depends('nom', 'prenom')
+    def _compute_fullname(self):    
+        for record in self:        
+            record.name = record.nom +' '+ record.prenom
+        
     
