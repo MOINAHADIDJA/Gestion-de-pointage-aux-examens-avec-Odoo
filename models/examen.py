@@ -7,7 +7,8 @@ class examen(models.Model):
     id_examen = fields.Integer("Id examen",required=True)
     _rec_name="designation_exam"
     type_id = fields.Many2one("type_examen",string="Type")
-    date = fields.Datetime("Date examen")
+    #date = fields.Datetime("Date examen")
+    date = fields.Date("Date examen")
     employe_id = fields.Many2many("employe",string='Surveillants')
     element_id = fields.Many2one("element",string="Element" )
     local_id = fields.Many2one("local" , string="Local")
@@ -16,7 +17,7 @@ class examen(models.Model):
         selection=[('normal', 'Normal'), ('rattrapage', 'Rattrapage')],
         default="normal"
            )
-    duree = fields.Integer("duree",stribg="Duree")
+    duree = fields.Float("Duree")
 
     state = fields.Selection(
         string='state',

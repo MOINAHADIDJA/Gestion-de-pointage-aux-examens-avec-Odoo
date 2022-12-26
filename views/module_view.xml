@@ -26,7 +26,7 @@
         </field>
     </record>
     <record id="module_view_tree" model="ir.ui.view">
-        <field name="name">Module</field>
+        <field name="name">ModuleList</field>
         <field name="model">module</field>
         <field name="arch" type="xml">
             <tree string="">
@@ -36,6 +36,17 @@
                 <field name="element_ids" widget="many2many_tags" />
                 <field name="semestre_id" />
             </tree>
+        </field>
+    </record>
+
+    <record id="module_view_search" model="ir.ui.view">
+        <field name="name">ModuleSearch</field>
+        <field name="model">module</field>
+        <field name="arch" type="xml">
+            <search string="Recherche">
+                <field name="designation" />
+                <!-- <field name="semestre_id.designation" /> -->
+            </search>
         </field>
     </record>
 </odoo>

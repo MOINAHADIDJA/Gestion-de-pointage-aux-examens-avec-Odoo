@@ -6,7 +6,8 @@
         <field name="res_model">employe</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem name="employe" id="gpointage_employe_menu" parent="gpointage_base_menu" action="gpointage_employe_action" />
+    <menuitem name="employe" id="gpointage_employe_menu" parent="gpointage_base_menu"
+        action="gpointage_employe_action" />
 
     <record id="employe_view_form" model="ir.ui.view">
         <field name="name">Employe</field>
@@ -31,7 +32,8 @@
         </field>
     </record>
 <record id="employe_view_tree" model="ir.ui.view">
-    <field name="name">Employe</field>
+    <field name="name">
+            Employe</field>
     <field name="model">employe</field>
     <field name="arch" type="xml">
         <tree string="">
@@ -45,6 +47,19 @@
                 <field name="etablissement_id" />
 
             </tree>
-    </field>
-</record>
+        </field>
+    </record>
+
+    <record id="employe_view_search" model="ir.ui.view">
+        <field name="name">EmployeSearch</field>
+        <field name="model">employe</field>
+        <field name="arch" type="xml">
+            <search string="Recherche">
+                <field name="matricule" />
+                <field name="nom" />
+                <field name="role" />
+            </search>
+        </field>
+    </record>
+
 </odoo>

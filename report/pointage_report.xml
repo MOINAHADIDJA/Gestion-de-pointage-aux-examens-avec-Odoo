@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="gestionpointage.pointage_print_badge" model="ir.actions.report">
+        <field name="name">Print infos pointage</field>
+        <field name="model">pointage</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gestionpointage.print_pointage_badge</field>
+        <field name="report_file">gestionpointage.print_pointage_badge</field>
+        <field name="print_report_name">'Print pointage - %s' %(object.state).replace('/','')</field>
+        <field name="binding_model_id" ref="model_pointage" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="print_pointage_badge">
+        <t t-call="web.basic_layout">
+            <div class="page">
+
+
+                <t t-foreach="docs" t-as="pointage">
+                    <div>
+                        <h3 style="text-align:center"> Num <t
+                                t-esc="pointage.id" />
+                        </h3>
+                    </div>
+                    <div>
+                        <table>
+
+
+                            <thead style="background-color:grey">
+
+                                <tr>
+                                    <th class="col-md-2">
+                                        Num
+                                    </th>
+                                   
+                                    <th class="col-md-2">
+                                        Nom et Prenom
+                                    </th>
+                                   
+                                    <th class="col-md-3">
+                                        Examen</th>
+                                    <th class="col-md-3">Pointage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="col-md-1">
+                                        <t t-esc="pointage.id" />
+                                    </td>
+                                    <td class="col-md-2">
+                                        <t t-esc="pointage.etudiant_id" />
+                                    </td>
+
+
+                                
+                                    <td class="col-md-3">
+                                        <t t-esc="pointage.examen_id" />
+                                    </td>
+                                    <td class="col-md-3">
+                                        <t t-esc="pointage.state" />
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+
+</odoo>

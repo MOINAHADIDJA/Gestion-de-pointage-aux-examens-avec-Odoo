@@ -6,49 +6,61 @@
         <field name="res_model">pointage</field>
         <field name="view_mode">tree,form,graph,search</field>
     </record>
-    <menuitem name="pointage" id="gpointage_pointage_menu" parent="gpointage_base_menu" action="gpointage_pointage_action" />
+    <menuitem name="pointage" id="gpointage_pointage_menu" parent="gpointage_base_menu"
+        action="gpointage_pointage_action" />
 
 
-    <!-- <record id="pointage_view_search" model="ir.ui.view">
-        <field name="name">Pointage Search</field>
+    <record id="pointage_view_search" model="ir.ui.view">
+        <field name="name">PointageSearch</field>
         <field name="model">pointage</field>
-        <field name="arch" type="xml">
+        <field name="arch"
+    type="xml">
             <search>
-               
-                
+                <field name="examen_id" />
+
             </search>
         </field>
-    </record> -->
-
-    
-    <record id="pointage_view_form" model="ir.ui.view">
-        <field name="name">Pointage</field>
-        <field name="model">pointage</field>
-        <field name="arch" type="xml">
-            <tree string="">
-                <field name="etudiant_id"  />
-                <field name="examen_id" widget="many2one_simple" />
-                <field name="state" />
-
-            </tree>
-        </field>
     </record>
 
+   
     <record id="pointage_view_tree" model="ir.ui.view">
-        <field name="name">Pointage</field>
+        <field name="name">pointageList</field>
         <field name="model">pointage</field>
         <field name="arch" type="xml">
             <tree string="">
-                <field name="etudiant_id"  />
-                <field name="examen_id"  />
+                <field name="etudiant_id" />
+                <field name="examen_id" />
                 <field name="state" />
-               
+                <!-- <field name="verification" /> -->
+
             </tree>
         </field>
     </record>
+
+    <record id="pointage_view_form" model="ir.ui.view">
+        <field name="name">pointageForm</field>
+        <field name="model">pointage</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="etudiant_id" />
+                        <field name="examen_id" />
+                        <field name="state" attrs="{'readonly':[('verification','=',1)]}" />
+                        <field name="verification" />
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+   
+
 
     <record id="pointage_view_graph" model="ir.ui.view">
-        <field name="name">Pointage</field>
+        <field name="name">
+            PointageGraph</field>
         <field name="model">pointage</field>
         <field name="arch" type="xml">
             <graph string="" type="bar">

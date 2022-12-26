@@ -13,7 +13,7 @@ class etablissement(models.Model):
     fax = fields.Char("Fax")
     adresse = fields.Char("Adresse")
     ville = fields.Char("Ville")
-    code_postal = fields.Date("code postal")
+    code_postal = fields.Integer("code postal")
     logo = fields.Binary("Logo")
     
    

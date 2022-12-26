@@ -4,11 +4,12 @@
     <record id="gpointage_examen_action" model="ir.actions.act_window">
         <field name="name">Examen</field>
         <field name="res_model">examen</field>
-        <field name="view_mode">tree,form,kanban,calendar</field>
+        <field name="view_mode">tree,form,kanban,calendar,pivot</field>
     </record>
     <menuitem name="Examen" id="gpointage_examen_menu" parent="gpointage_base_menu" />
 
-    <menuitem name="examen" id="gpointage_examen_sous_menu" parent="gpointage_examen_menu" action="gpointage_examen_action" />
+    <menuitem name="examen" id="gpointage_examen_sous_menu" parent="gpointage_examen_menu"
+        action="gpointage_examen_action" />
 
 
     <record id="examen_view_kanban" model="ir.ui.view">
@@ -23,19 +24,21 @@
                         <div>
                             <ul>
                                 <li t_if="record.name.raw_value">
-                                    <a>Element</a>
-                                    :
-                                    <field name="element_id" />
+                                    <field name="type_id" />
+                                    <li t_if="record.name.raw_value"> Session : <field name="session" />
+
+                                    </li>
+                                </li>
+                                <li t_if="record.name.raw_value">
+                                    <a>
+                                    Element</a> : <field name="element_id" />
+
+                                </li>
+                                <li t_if="record.name.raw_value"> Date : <field name="date" />
 
                                 </li>
                                 <li t_if="record.name.raw_value">
-                                    Date :
-                                    <field name="date" />
-
-                                </li>
-                                <li t_if="record.name.raw_value">
-                                    Local :
-                                    <field name="local_id" />
+                                    Local : <field name="local_id" />
 
                                 </li>
                             </ul>
@@ -47,32 +50,33 @@
     </record>
 
     <record id="examen_view_calendar" model="ir.ui.view">
-        <field name="name">Examen</field>
+        <field name="name">
+            Examen</field>
         <field name="model">examen</field>
         <field name="arch" type="xml">
             <calendar string="" date_start="date" color="">
-               
+
                 <field name="element_id" />
             </calendar>
         </field>
     </record>
 
     <record id="examen_view_pivot" model="ir.ui.view">
-        <field name="name">examen</field>
+        <field name="name">
+            examen</field>
         <field name="model">examen</field>
         <field name="arch" type="xml">
             <pivot string="">
                 <field name="type_id" type="row" />
                 <field name="element_id" type="col" />
                 <field name="date" type="col" />
-                <field name="employe_id"  />
 
             </pivot>
         </field>
     </record>
 
     <record id="examen_view_form" model="ir.ui.view">
-        <field name="name">Examen</field>
+        <field name="name">ExamenForm</field>
         <field name="model">examen</field>
         <field name="arch" type="xml">
             <form string="">
@@ -92,9 +96,7 @@
                         <field name="session" />
                         <field name="element_id" />
                         <field name="local_id" />
-                        <!-- <field name="pointage_exam_id" /> -->
                         <field name="duree" />
-
                         <field name="employe_id" widget="many2many_tags" />
 
                     </group>
@@ -103,7 +105,8 @@
         </field>
     </record>
     <record id="examen_view_tree" model="ir.ui.view">
-        <field name="name">Examen</field>
+        <field name="name">
+            Examen</field>
         <field name="model">examen</field>
         <field name="arch" type="xml">
             <tree string="">
@@ -114,10 +117,22 @@
                 <field name="element_id" />
                 <field name="local_id" />
                 <field name="state" />
-                <field name="employe_id" />
+                <field name="employe_id" widget="many2many_tags" />
                 <field name="duree" />
 
             </tree>
+        </field>
+    </record>
+
+    <record id="examen_view_search" model="ir.ui.view">
+        <field name="name">ExamenSearch</field>
+        <field name="model">examen</field>
+        <field name="arch" type="xml">
+            <search string="Recherche">
+                
+                <!-- <field name="element_id.designation" /> -->
+                <field name="state" />
+            </search>
         </field>
     </record>
 </odoo>

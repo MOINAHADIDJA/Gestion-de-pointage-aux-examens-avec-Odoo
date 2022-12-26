@@ -4,11 +4,11 @@
     <record id="gpointage_etudiant_action" model="ir.actions.act_window">
         <field name="name">Etudiant</field>
         <field name="res_model">etudiant</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,search</field>
     </record>
     <menuitem name="Etudiant" id="gpointage_etudiant_menu" parent="gpointage_base_menu" action="gpointage_etudiant_action" />
     <record id="etudiant_view_form" model="ir.ui.view">
-        <field name="name">Etudiant</field>
+        <field name="name">EtudiantForm</field>
         <field name="model">etudiant</field>
         <field name="arch" type="xml">
             <form string="">
@@ -31,7 +31,7 @@
         </field>
     </record>
     <record id="etudiant_view_tree" model="ir.ui.view">
-        <field name="name">Etudiant</field>
+        <field name="name">EtudiantList</field>
         <field name="model">etudiant</field>
         <field name="arch" type="xml">
             <tree string="">
@@ -52,15 +52,31 @@
     </record>
 
     <record id="etudiant_view_search" model="ir.ui.view">
-        <field name="name">Etudiant Search</field>
+        <field name="name">EtudiantSearch</field>
         <field name="model">etudiant</field>
         <field name="arch" type="xml">
-            <search string="recherche par nom">
-              
-                <filter name="cne" string="cne" domain="[('cne', '=', 'value')]" context="{'group_by': 'cne'}" />
+            <search string="Recherche" >
+                <filter name="par semestre" string="par semestre"
+                    context="{'group_by': 'semestre_id'}" />
+                <field name="etablissement_id" />
 
+                <field  name="cne"  />
+                <field name="nom" />
             </search>
         </field>
     </record>
+
+    <!-- <record id="school_student_search" model="ir.ui.view">
+        <field name="name">school.student.search</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="email" />
+                <field name="age" />
+                <field name="gender" />
+            </search>
+        </field>
+    </record> -->
   
 </odoo>

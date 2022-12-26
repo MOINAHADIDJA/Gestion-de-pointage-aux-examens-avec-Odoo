@@ -42,4 +42,15 @@
             </tree>
         </field>
     </record>
+
+    <record id="filiere_view_search" model="ir.ui.view">
+        <field name="name">FiliereSearch</field>
+        <field name="model">filiere</field>
+        <field name="arch" type="xml">
+            <search string="Recherche">
+                <field name="short_name" />
+                <field name="name" />
+            </search>
+        </field>
+    </record>
 </odoo>

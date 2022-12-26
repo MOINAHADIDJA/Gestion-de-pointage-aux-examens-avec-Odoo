@@ -4,7 +4,7 @@ from odoo import models,fields
 class local(models.Model):
     __name__ = "local"
     __description = " "
-    _rec_name = 'designation'
+    _rec_name = 'nom'
     id_local = fields.Integer("Id local",required=True)
     code = fields.Char("code",required=True)
     nom = fields.Char("Nom")
@@ -16,9 +16,9 @@ class local(models.Model):
         ondelete='restrict'
     )
     
-    designation = fields.Char(compute='_compute_name', store="True")
+    designation = fields.Char(compute='_compute_local', store="True")
     @api.depends('nom', 'etablissement_id')
-    def _compute_name(self):    
-        for record in self:        
-            record.designation = record.nom +' '+ str(record.etablissement_id.short_name)
+    def _compute_local(self):    
+        for local in self:        
+            local.designation = local.nom +' '+ str(local.etablissement_id.short_name)
 
